@@ -41,7 +41,7 @@ const createWindow = () => {
   gameWindow = new BrowserWindow({
     fullscreen: settings.auto_fullscreen,
     icon: path.join(__dirname, "../assets/img/icon.png"),
-    title: "Juice Client",
+    title: "gkc",
     width: 1280,
     height: 720,
     show: false,
