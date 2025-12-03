@@ -2,6 +2,9 @@
 
 A light Electron client for Kirka.io, forked off of juice client.
 
+> [!IMPORTANT]
+> This fork is currently under development, and while it is OK to use it might have leftover bugs. Please [open issues](https://github.com/i-am-called-glitchy/gkc/issues).
+
 Currently GKC does not have a dedicated discord. You may contact me on discord, my username is `amcalledglitchy.dev`
 
 Please do not add me if we already have mutual servers.
@@ -15,7 +18,7 @@ I do plan to make a dedicated discord, though right now am too lazy and i doubt 
 - [Juice discord](https://discord.gg/XYtsNbAnwE)
 
 
-> ### Important:
+> [!IMPORTANT]
 > Juice client has been archived and is no longer maintained. See [This message in the juice discord server](https://discord.com/channels/1233872482763538462/1233872649210298439/1384638402254606451)
 
 Windows, macos and linux builds available.
@@ -63,6 +66,7 @@ GKC is 100% completely safe to use. Releases are built directly with the source 
 
 ## Credits
 
-- irrvlo
+- glitchy
+- irrvlo for creating juice client
 - CarrySheriff for Chest/Pack opener and Map Images Repo
 - Sam for a basic Resource Swapper
