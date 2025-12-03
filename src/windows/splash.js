@@ -11,8 +11,8 @@ autoUpdater.autoDownload = true;
 
 autoUpdater.setFeedURL({
   provider: "github",
-  owner: "irrvlo",
-  repo: "juice-client",
+  owner: "i-am-called-glitchy",
+  repo: "gkc",
 });
 
 let splashWindow;
