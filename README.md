@@ -3,7 +3,7 @@
 A light Electron client for Kirka.io, forked off of juice client.
 
 > [!IMPORTANT]
-> This fork is currently under development, and while it is OK to use it might have leftover bugs. Please [open issues](https://github.com/i-am-called-glitchy/gkc/issues).
+> This fork is currently under development, and while it is OK to use, it might have leftover bugs. Please [open issues](https://github.com/i-am-called-glitchy/gkc/issues).
 
 Currently GKC does not have a dedicated discord. You may contact me on discord, my username is `amcalledglitchy.dev`
 
