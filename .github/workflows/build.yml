@@ -13,12 +13,12 @@ jobs:
 
     strategy:
       matrix:
-        os: [macos-12, windows-latest, ubuntu-latest]
+        os: [windows-latest, ubuntu-latest] # put macos-12 back when the runner gods decide to slide me a macos machine
         include:
           - os: windows-latest
             arch: x64
-          - os: macos-12
-            arch: x64
+          #- os: macos-12
+          #  arch: x64
           - os: ubuntu-latest
             arch: x64
 
