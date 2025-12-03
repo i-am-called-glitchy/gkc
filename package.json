@@ -1,6 +1,6 @@
 {
   "name": "gkc",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Fork of juice client, a pretty damn good kirka.io client.",
   "main": "src/main.js",
   "scripts": {
