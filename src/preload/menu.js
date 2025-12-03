@@ -2,6 +2,7 @@ const { ipcRenderer } = require("electron");
 const fs = require("fs");
 const path = require("path");
 const version = require("../../package.json").version;
+const isPackaged = require("electron-is-packaged").isPackaged;
 
 function genMenuKeybindHint(keybind){
   return `Press ${keybind} to toggle menu`;
@@ -59,8 +60,9 @@ class Menu {
   }
 
   setVersion() {
+    const suffix = isPackaged ? "" : "+dev";
     this.menu.querySelectorAll(".ver").forEach((element) => {
-      element.innerText = `v${version}`;
+      element.innerText = `v${version}${suffix}`;
     });
   }
 
