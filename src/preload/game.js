@@ -4,6 +4,7 @@ const { ipcRenderer } = require("electron");
 const fs = require("fs");
 const path = require("path");
 const version = require("../../package.json").version;
+const isPackaged = require("electron-is-packaged").isPackaged;
 
 // this file is so monolithic god damn
 // TODO: refactor into smaller files
@@ -207,24 +208,24 @@ document.addEventListener("DOMContentLoaded", async () => {
       "card-cont soc-group transfer-list-top-enter transfer-list-top-enter-active";
     discordBtn.id = "juice-discord-btn";
     discordBtn.style = `
-    background: linear-gradient(to top, rgba(255,147,45,.75), rgba(172,250,112,.75)) !important;
+    background: linear-gradient(to top, rgba(45, 48, 255, 0.75), rgba(0, 161, 224, 0.75)) !important;
     border: none !important`;
     const textDivs = discordBtn.querySelector(".text-soc").children;
     textDivs[0].innerText = "GKC";
-    textDivs[1].innerText = `v${version}`;
+    const suffix = isPackaged ? "" : "+dev";
+    textDivs[1].innerText = `v${version}${suffix}`;
 
-    /*const i = document.createElement("i");
+    const i = document.createElement("i");
     i.className = "fab fa-discord";
     i.style.fontSize = "48px";
     i.style.fontFamily = "Font Awesome 6 Brands";
     i.style.margin = "3.2px 1.6px 0 1.6px";
     i.style.textShadow = "0 0 0 transparent";
-    discordBtn.querySelector("svg").replaceWith(i); */
+    discordBtn.querySelector("svg").replaceWith(i);
     
-    discordBtn.querySelector("svg").remove();
 
     discordBtn.onclick = () => {
-      window.open("https://example.com", "_blank"); // FIXME: set it to the dc server (when i make one lol), or the github
+      window.open("https://discord.gg/aNDBW7vQ5x", "_blank"); 
     };
     
 

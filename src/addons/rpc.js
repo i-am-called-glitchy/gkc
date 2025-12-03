@@ -37,7 +37,7 @@ class DiscordRPC {
       },
       buttons: [
         { label: "Download", url: "https://github.com/i-am-called-glitchy/gkc/releases/" },
-        // { label: "Discord", url: "https://discord.gg/FjzAAdSjng" }, // TODO: dedicated gkc discord
+        { label: "Discord", url: "https://discord.gg/aNDBW7vQ5x" },
       ],
     };
   }

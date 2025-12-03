@@ -3,13 +3,9 @@
 A light Electron client for Kirka.io, forked off of juice client.
 
 > [!IMPORTANT]
-> This fork is currently under development, and while it is OK to use, it might have leftover bugs. Please [open issues](https://github.com/i-am-called-glitchy/gkc/issues).
-
-Currently GKC does not have a dedicated discord. You may contact me on discord, my username is `amcalledglitchy.dev`
+> This fork is currently under development, and while it is OK to use, it might have leftover bugs. Please [open issues](https://github.com/i-am-called-glitchy/gkc/issues), or contact me on [discord](https://discord.gg/aNDBW7vQ5x).
 
 Please do not add me if we already have mutual servers.
-
-I do plan to make a dedicated discord, though right now am too lazy and i doubt i will have enough users to make that worthwhile.
 
 ## Juice client's links
 
@@ -62,7 +58,7 @@ Windows, macos and linux builds available.
 
 # Is it safe?
 
-GKC is 100% completely safe to use. Releases are built directly with the source code using Github Workflows (Thanks Error!). If you face any issues, please DM me on discord, `amcalledglitchy.dev` as we do not have a dedicated server yet.
+GKC is 100% completely safe to use. Releases are built directly with the source code using Github Workflows (Thanks Error!). If you face any issues, please either open a github issue or complain in *✨[le discord](https://discord.gg/aNDBW7vQ5x)✨*
 
 ## Credits
 
