@@ -1,13 +1,24 @@
-# Juice Client
+# GKC
 
-A light Electron client for Kirka.io. Join our [discord](https://discord.gg/FjzAAdSjng) for support and update notifications.
+A light Electron client for Kirka.io, forked off of juice client.
 
-# Download
+Currently GKC does not have a dedicated discord. You may contact me on discord, my username is `amcalledglitchy.dev`
 
-- [Website](https://juice.irrvlo.xyz)
-- [Releases](https://github.com/irrvlo/juice-client/releases)
+Please do not add me if we already have mutual servers.
 
-Windows and MacOS releases are available. Linux will come if requested enough.
+I do plan to make a dedicated discord, though right now am too lazy and i doubt i will have enough users to make that worthwhile.
+
+## Juice client's links
+
+- [Juice Website](https://juice.irrvlo.xyz)
+- [Juice Releases](https://github.com/irrvlo/juice-client/releases)
+- [Juice discord](https://discord.gg/XYtsNbAnwE)
+
+
+> ### Important:
+> Juice client has been archived and is no longer maintained. See [This message in the juice discord server](https://discord.com/channels/1233872482763538462/1233872649210298439/1384638402254606451)
+
+Windows, macos and linux builds available.
 
 # What features does this have?
 
@@ -48,7 +59,7 @@ Windows and MacOS releases are available. Linux will come if requested enough.
 
 # Is it safe?
 
-Juice Client is 100% completely safe to use. Releases are built directly with the source code using Github Workflows (Thanks Error!). If you face any issues, join our [discord](https://discord.gg/FjzAAdSjng) to report bugs.
+GKC is 100% completely safe to use. Releases are built directly with the source code using Github Workflows (Thanks Error!). If you face any issues, please DM me on discord, `amcalledglitchy.dev` as we do not have a dedicated server yet.
 
 ## Credits
 

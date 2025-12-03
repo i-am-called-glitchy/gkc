@@ -17,7 +17,11 @@ const initResourceSwapper = () => {
     "swapper"
   );
   const assetsFolder = path.join(SWAP_FOLDER, "assets");
-  const folders = ["css", "media", "img", "glb"];
+  const folders = ["css", "media", "img", "js"];
+  let folder_regex_generator = "JuiceClient[\\\\/]swapper[\\\\/]assets[\\\\/](";
+  folder_regex_generator += folders.join("|");
+  folder_regex_generator += ")[\\\\/][^\\\\/]+\\.[^.]+$";
+  let folder_regex = new RegExp(folder_regex_generator, "");
 
   try {
     if (!fs.existsSync(assetsFolder))
@@ -36,27 +40,34 @@ const initResourceSwapper = () => {
     files: {},
   };
 
+  const proxyUrls = [
+    "snipers.io",
+    "ask101math.com",
+    "fpsiogame.com",
+    "cloudconverts.com",
+    "kirka.io",
+  ];
+
   const allFilesSync = (dir) => {
     fs.readdirSync(dir).forEach((file) => {
       const filePath = path.join(dir, file);
       if (fs.statSync(filePath).isDirectory()) allFilesSync(filePath);
       else {
-        const useAssets =
-          /JuiceClient[\\/]swapper[\\/]assets[\\/](css|media|img|glb)[\\/][^\\/]+\.[^.]+$/.test(
-            filePath
-          );
-        if (!useAssets) return;
+        const useAssets = folder_regex.test(filePath);
+        if (!useAssets || filePath.toLowerCase().endsWith(".glb")) return;
 
-        const kirk =
-          "*://" +
-          (useAssets ? "kirka.io" : "") +
-          filePath.replace(SWAP_FOLDER, "").replace(/\\/g, "/") +
-          "*";
-        swap.filter.urls.push(kirk);
-        swap.files[kirk.replace(/\*/g, "")] = url.format({
-          pathname: filePath,
-          protocol: "",
-          slashes: false,
+        proxyUrls.forEach((proxy) => {
+          const kirk = `*://${proxy}${filePath.replace(SWAP_FOLDER, "").replace(/\\/g, "/")}*`;
+          const origfilterurl = kirk.match(/\/[^\/]+\.(?:[a-zA-Z0-9]+)\*/gi)[0];
+          let filterurl = origfilterurl.replace(/\_/g, "");
+          filterurl = filterurl.replace("/", "/*");
+          filterurl = filterurl.replace(".", "*.*");
+          swap.filter.urls.push(kirk.replace(origfilterurl, filterurl));
+          swap.files[kirk.replace(/\*|_/g, "")] = url.format({
+            pathname: filePath,
+            protocol: "",
+            slashes: false,
+          });
         });
       }
     });
@@ -70,7 +81,7 @@ const initResourceSwapper = () => {
       (details, callback) => {
         const redirect =
           "juiceclient://" +
-          (swap.files[details.url.replace(/https|http|(\?.*)|(#.*)/gi, "")] ||
+          (swap.files[details.url.replace(/https|http|(\?.*)|(#.*)|\_/gi, "")] ||
             details.url);
         callback({ cancel: false, redirectURL: redirect });
       }

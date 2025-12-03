@@ -3,6 +3,10 @@ const fs = require("fs");
 const path = require("path");
 const version = require("../../package.json").version;
 
+function genMenuKeybindHint(keybind){
+  return `Press ${keybind} to toggle menu`;
+}
+
 class Menu {
   constructor() {
     this.settings = ipcRenderer.sendSync("get-settings");
@@ -27,7 +31,7 @@ class Menu {
     const menu = document.createElement("div");
     menu.innerHTML = this.menuHTML;
     menu.id = "juice-menu";
-    menu.style.cssText =
+    menu.style.cssText = // could use a couple more 9s /j
       "z-index: 99999999; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);";
     document.body.appendChild(menu);
     return menu;
@@ -63,7 +67,7 @@ class Menu {
   setKeybind() {
     this.menu.querySelector(
       ".keybind"
-    ).innerText = `Press ${this.settings.menu_keybind} to toggle menu`;
+    ).innerText = genMenuKeybindHint(this.settings.menu_keybind);
     if (!this.localStorage.getItem("juice-menu")) {
       this.localStorage.setItem(
         "juice-menu",
@@ -135,7 +139,7 @@ class Menu {
         changeKeybindButton.innerText = e.code;
         this.menu.querySelector(
           ".keybind"
-        ).innerText = `Press ${this.settings.menu_keybind} to toggle menu`;
+        ).innerText = genMenuKeybindHint(e.code);
         document.removeEventListener("keydown", listener);
       };
       document.addEventListener("keydown", listener);

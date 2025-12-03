@@ -1,9 +1,9 @@
 const { app } = require("electron");
-const { initSplash } = require("./windows/splash");
+const { initGame } = require("./windows/game");
 const { initResourceSwapper } = require("./addons/swapper");
 
 app.on("ready", () => {
-  initSplash();
+  initGame();
   initResourceSwapper();
 });
 

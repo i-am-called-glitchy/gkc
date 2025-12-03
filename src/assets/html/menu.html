@@ -545,6 +545,11 @@
   .author {
     color: rgba(var(--light), 0.5);
   }
+
+  .menu {
+    resize: both;
+    overflow: auto;
+  }
 </style>
 
 <div class="menu" data-theme="dark" data-active="true">
@@ -596,7 +601,7 @@
     <div id="ui-options" class="juice options active">
       <div class="option-group">
         <div class="option">
-          <span>Enable CSS</span>
+          <span>Enable CSS Link</span>
           <div class="checkbox">
             <input
               type="checkbox"
@@ -655,6 +660,17 @@
               data-setting="ui_animations"
             />
             <label for="ui_animations"></label>
+          </div>
+        </div>
+        <div class="option">
+          <span>Hide cookie consent button</span>
+          <div class="checkbox">
+            <input
+              type="checkbox"
+              id="hide_cookie_consent"
+              data-setting="hide_cookie_consent"
+            />
+            <label for="hide_cookie_consent"></label>
           </div>
         </div>
       </div>

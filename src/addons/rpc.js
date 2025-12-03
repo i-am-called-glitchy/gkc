@@ -3,7 +3,7 @@ const version = require("../../package.json").version;
 
 class DiscordRPC {
   constructor() {
-    this.clientId = "1233829658345078846";
+    this.clientId = "1445782198421815497";
     this.client = new rpc.Client({ transport: "ipc" });
     this.init();
   }
@@ -32,8 +32,8 @@ class DiscordRPC {
       timestamps: { start: Date.now() },
       state: "In the lobby",
       assets: {
-        large_image: "juice",
-        large_text: `Juice Client v${version}`,
+        large_image: "gkc",
+        large_text: `gkc v${version}`,
       },
       buttons: [
         { label: "Download", url: "https://juice.irrvlo.xyz" },

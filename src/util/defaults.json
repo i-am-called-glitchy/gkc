@@ -20,6 +20,7 @@
     "advanced_css": "",
     "in_process_gpu": false,
     "menu_keybind": "ShiftRight",
-    "menu_theme": "dark"
+    "menu_theme": "dark",
+    "hide_cookie_consent": false
   }
 }

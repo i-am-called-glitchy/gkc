@@ -3,6 +3,10 @@ const { opener } = require("../addons/opener");
 const { ipcRenderer } = require("electron");
 const fs = require("fs");
 const path = require("path");
+const version = require("../../package.json").version;
+
+// this file is so monolithic god damn
+// TODO: refactor into smaller files
 
 const scriptsPath = ipcRenderer.sendSync("get-scripts-path");
 const scripts = fs.readdirSync(scriptsPath);
@@ -67,7 +71,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     )
       return;
 
-    const news = await fetch("https://juice-api.irrvlo.xyz/api/news").then(
+    const news = await fetch("https://cpy.amcalledglitchy.dev/public/gkc-news.json").then( // screw it, feeling lazy have my copyparty
       (res) => res.json()
     );
 
@@ -83,7 +87,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       flex-direction: column;
       gap: 0.25rem;
       transform-origin: top left;
-      top: 180px;
+      bottom: 1%;
       left: 147px;
     `;
 
@@ -175,7 +179,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       if (newsItem.img && newsItem.img !== "") addImage();
 
-      if (newsItem.updatedAt && newsItem.updatedAt > Date.now() - 432000000) {
+      if (newsItem.updatedAt && newsItem.updatedAt > Date.now() - (5 * 24 * 60 * 60 * 1000)) { // 5 days
         addNew();
       }
       addContent();
@@ -204,28 +208,29 @@ document.addEventListener("DOMContentLoaded", async () => {
     discordBtn.id = "juice-discord-btn";
     discordBtn.style = `
     background: linear-gradient(to top, rgba(255,147,45,.75), rgba(172,250,112,.75)) !important;
-    border-bottom-color: #c47022 !important;
-    border-top-color: #c5ff99 !important;
-    border-right-color: #e48329 !important;`;
+    border: none !important`;
     const textDivs = discordBtn.querySelector(".text-soc").children;
-    textDivs[0].innerText = "JUICE";
-    textDivs[1].innerText = "DISCORD";
+    textDivs[0].innerText = "GKC";
+    textDivs[1].innerText = `v${version}`;
 
-    const i = document.createElement("i");
+    /*const i = document.createElement("i");
     i.className = "fab fa-discord";
     i.style.fontSize = "48px";
     i.style.fontFamily = "Font Awesome 6 Brands";
     i.style.margin = "3.2px 1.6px 0 1.6px";
     i.style.textShadow = "0 0 0 transparent";
-    discordBtn.querySelector("svg").replaceWith(i);
+    discordBtn.querySelector("svg").replaceWith(i); */
+    
+    discordBtn.querySelector("svg").remove();
 
     discordBtn.onclick = () => {
-      window.open("https://discord.gg/FjzAAdSjng", "_blank");
+      window.open("https://example.com", "_blank"); // FIXME: set it to the dc server (when i make one lol), or the github
     };
+    
 
     btn.replaceWith(discordBtn);
 
-    setInterval(() => {
+    setTimeout(() => {
       discordBtn.className = "card-cont soc-group";
     }, 300);
   };
@@ -342,6 +347,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         styles.push(
           "canvas { animation: rotateHue 1s linear infinite !important; }"
         );
+      }
+      if (settings.hide_cookie_consent) {
+        styles.push(" #cmpPersistentLink { display: none !important; }");
       }
 
       addedStyles.innerHTML = styles.join("");

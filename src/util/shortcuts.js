@@ -1,7 +1,7 @@
 const { app, clipboard } = require("electron");
 const shortcut = require("electron-localshortcut");
 
-const registerShortcuts = (window) => {
+const registerShortcuts = (window) => { // TODO: i should make these rebindable via ui later
   const register = (key, action) => shortcut.register(window, key, action);
   register("Escape", () =>
     window.webContents.executeJavaScript("document.exitPointerLock()")
